@@ -1,0 +1,86 @@
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'smile-aws']]
+
+pipeline {
+  
+  agent any
+
+  parameters {
+      string(name: 'filename', defaultValue: 'configure/smile.yml', description: 'Name of Smile config file.')      
+      string(name: 'account', defaultValue: '', description: 'New account number.')
+  }
+
+  options {
+    disableConcurrentBuilds() 
+    timestamps()
+  }
+
+  tools {nodejs "AWS-CDK"}
+
+  stages { 
+    stage('Node Modules') {
+      steps {
+        sh 'node -v'
+        sh 'npm -v'
+        sh 'npm update aws-cdk -g'
+        sh 'npm install js-yaml -g'
+        sh 'npm update'
+        sh 'cdk --version'
+      }
+    } 
+
+    stage('Build') {
+      steps {
+        sh 'npm run build'
+      }
+    } 
+
+    stage('Copy Config') {
+      steps {
+        withAWS() {
+          s3Download(file: "smile.yml", bucket: "trex-smile-dev", path: "${params.filename}", force:true)
+        }
+      } 
+    } 
+
+    stage('Deploy') {
+      steps { 
+        withEnv(["SMILEACCOUT=${params.account}" ]) {
+          sh '''#!/bin/bash 
+
+                #set -x
+
+                unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_SECURITY_TOKEN
+
+                # AWS Organizations seeds the account with a role assumable by root account
+                ROLE="${1:-OrganizationAccountAccessRole}"
+                ACCOUNT=$SMILEACCOUT
+                DURATION="${3:-900}"
+                NAME="${4:-$LOGNAME@`hostname -s`}"
+
+                KST=($(/home/tomcat/.local/bin/aws sts assume-role --role-arn "arn:aws:iam::$ACCOUNT:role/$ROLE" \
+                                          --role-session-name "$NAME" \
+                                          --duration-seconds $DURATION \
+                                          --query '[Credentials.AccessKeyId,Credentials.SecretAccessKey,Credentials.SessionToken]' \
+                                          --output text))
+
+                export AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-east-1}
+                export AWS_ACCESS_KEY_ID=${KST[0]}
+                export AWS_SECRET_ACCESS_KEY=${KST[1]}
+                export AWS_SESSION_TOKEN=${KST[2]}
+                export AWS_SECURITY_TOKEN=${KST[2]}
+
+                cfcntr=0
+                printf "Waiting for CF Service ..."
+                sleep 60
+               
+                #Tear down during testing
+                cdk deploy SmileAccountStack* --require-approval=never
+                
+                #Tear down during testing
+                #cdk destroy SmileAccountStack* --force
+              '''
+        }
+      }
+    }
+  }
+}
