@@ -1,11 +1,16 @@
-# T-Rex SMILE™
+# T-Rex SMILE™: Jenkins
 
-This the cornerstone of T-Rex Solutions LLC's(TREX) 
-Centers of Excellence (COE) Technology Lab Projects (TLP).
+Varios Seed Jobs For Various Jenkins including the one used by T-Rex SMILE
 
-See Makefile, but you probably want `make deploy-ci`
+## Jenkins rpm jenkins-2.222.1-1.1.noarch.rpm
 
-This AWS CDK (node js) is responsible for provisioning the landing zone once the account is created
-from the Account Vending Machine(AVM).
-
-OR it can deploy itself directly to an account you can login to with AdministratorAcess
+- sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo
+- sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+- sudo yum install jenkins
+- Installation of Java
+- Jenkins requires Java in order to run, yet certain distros don't include this by default. To install the Open Java Development Kit (OpenJDK) run the following:
+- sudo yum install java
+- Start/Stop
+- sudo service jenkins start/stop/restart
+- sudo chkconfig jenkins on
+- login http://localhost:8080
