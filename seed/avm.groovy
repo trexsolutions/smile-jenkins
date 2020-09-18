@@ -10,6 +10,10 @@ folder('smile/lz') {
 	displayName('LZ')
 	description('Folder for Landing Zones')
 }
+folder('smile/container') {
+	displayName('Container')
+	description('Folder for Landing Zones')
+}
 
 pipelineJob('smile/avm/create') {
 	displayName('Smile AVM Account Create')
@@ -98,3 +102,22 @@ pipelineJob('smile/lz/delete') {
         }
 	}
 }
+
+pipelineJob('smile/container/build_publish') {
+	displayName('Smile Container Build & Publish')
+	description('Builds Dockerfile & Publishes to ECR')
+	definition {
+    	cpsScm {
+        	scm {
+            	git {
+                	remote {
+                		url('https://github.com/trexsolutions/smile-cdk.git')
+                    }
+                    branches('*/master')
+                }
+            }
+            scriptPath('pipelines/container/build_publish.groovy')
+        }
+	}
+}
+
