@@ -111,6 +111,7 @@ pipelineJob('smile/container/build_publish') {
         	scm {
             	git {
                 	remote {
+						credentials(jenkins-github)
                 		url('https://github.com/trexsolutions/smile-cdk.git')
                     }
                     branches('*/master')
