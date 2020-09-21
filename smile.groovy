@@ -23,3 +23,20 @@ pipelineJob("$basePath/smile-builder") {
 	}
 }
 
+pipelineJob("$basePath/smile-provisioner") {
+	description('Builds smile-provisioner and pushes to ecr')
+	definition {
+    	cpsScm {
+        	scm {
+            	git {
+                	remote {
+						credentials('jenkins-github')
+                		url(repo)
+                    }
+                    branches('*/master')
+                }
+            }
+            scriptPath('pipelines/smile-provisioner/Jenkinsfile')
+        }
+	}
+}
