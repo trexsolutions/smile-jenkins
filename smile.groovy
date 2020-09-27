@@ -40,3 +40,21 @@ pipelineJob("$basePath/smile-provisioner") {
         }
 	}
 }
+
+pipelineJob("$basePath/smile-provision") {
+	description('Provisions the account')
+	definition {
+    	cpsScm {
+        	scm {
+            	git {
+                	remote {
+						credentials('jenkins-github')
+                		url(repo)
+                    }
+                    branches('*/master')
+                }
+            }
+            scriptPath('pipelines/smile-provision/Jenkinsfile')
+        }
+	}
+}
