@@ -77,6 +77,24 @@ pipelineJob("$basePath/smile-avm-account-create") {
 	}
 }
 
+pipelineJob("$basePath/smile-avm-account-provision") {
+	description('Provisions an AWS Organization Account')
+	definition {
+    	cpsScm {
+        	scm {
+            	git {
+                	remote {
+						credentials('jenkins-github')
+                		url(repo)
+                    }
+                    branches('*/master')
+                }
+            }
+            scriptPath('pipelines/smile-avm/Jenkinsfile.provision')
+        }
+	}
+}
+
 pipelineJob("$basePath/smile-avm-account-delete") {
 	description('Deletes an AWS Organization Account')
 	definition {
