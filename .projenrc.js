@@ -1,7 +1,7 @@
 const { AwsCdkTypeScriptApp, Semver } = require('projen');
 
 const project = new AwsCdkTypeScriptApp({
-  cdkVersion: "1.72.0",
+  cdkVersion: "1.73.0",
   name: "smile-jenkins",
   description: 'Jenkins Seed Files',
   authorOrganization: 'trexsolutions',
