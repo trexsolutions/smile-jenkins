@@ -12,15 +12,15 @@ pipelineJob("$basePath/smile-builder") {
           scm {
               git {
                   remote {
-            credentials('jenkins-github')
+                    credentials('jenkins-github')
                     url(repo)
-                    }
-                    branches('*/master')
+                  }
+                  branches('*/master')
                 }
             }
             scriptPath('pipelines/smile-builder/Jenkinsfile')
         }
-  }
+    }
 }
 
 pipelineJob("$basePath/smile-provisioner") {
@@ -30,33 +30,15 @@ pipelineJob("$basePath/smile-provisioner") {
           scm {
               git {
                   remote {
-            credentials('jenkins-github')
+                    credentials('jenkins-github')
                     url(repo)
-                    }
-                    branches('*/master')
+                  }
+                  branches('*/master')
                 }
             }
             scriptPath('pipelines/smile-provisioner/Jenkinsfile')
         }
-  }
-}
-
-pipelineJob("$basePath/smile-provision") {
-  description('Provisions the account')
-  definition {
-      cpsScm {
-          scm {
-              git {
-                  remote {
-            credentials('jenkins-github')
-                    url(repo)
-                    }
-                    branches('*/master')
-                }
-            }
-            scriptPath('pipelines/smile-provision/Jenkinsfile')
-        }
-  }
+    }
 }
 
 pipelineJob("$basePath/smile-avm-account-create") {
@@ -66,15 +48,15 @@ pipelineJob("$basePath/smile-avm-account-create") {
           scm {
               git {
                   remote {
-            credentials('jenkins-github')
+                    credentials('jenkins-github')
                     url(repo)
-                    }
-                    branches('*/master')
+                  }
+                  branches('*/master')
                 }
             }
             scriptPath('pipelines/smile-avm/Jenkinsfile.create')
         }
-  }
+    }
 }
 
 pipelineJob("$basePath/smile-avm-account-provision") {
@@ -84,15 +66,15 @@ pipelineJob("$basePath/smile-avm-account-provision") {
           scm {
               git {
                   remote {
-            credentials('jenkins-github')
+                    credentials('jenkins-github')
                     url(repo)
-                    }
-                    branches('*/master')
+                  }
+                  branches('*/master')
                 }
             }
             scriptPath('pipelines/smile-avm/Jenkinsfile.provision')
         }
-  }
+    }
 }
 
 pipelineJob("$basePath/smile-avm-account-delete") {
@@ -102,13 +84,13 @@ pipelineJob("$basePath/smile-avm-account-delete") {
           scm {
               git {
                   remote {
-            credentials('jenkins-github')
+                    credentials('jenkins-github')
                     url(repo)
-                    }
-                    branches('*/master')
+                  }
+                  branches('*/master')
                 }
             }
             scriptPath('pipelines/smile-avm/Jenkinsfile.delete')
         }
-  }
+    }
 }
