@@ -94,3 +94,21 @@ pipelineJob("$basePath/smile-avm-account-delete") {
         }
     }
 }
+
+pipelineJob("$basePath/smile-lz-make") {
+  description('Creates or Updates a Landing Zone')
+  definition {
+      cpsScm {
+          scm {
+              git {
+                  remote {
+                    credentials('jenkins-github')
+                    url(repo)
+                  }
+                  branches('*/master')
+                }
+            }
+            scriptPath('pipelines/smile-lz/Jenkinsfile')
+        }
+    }
+}
