@@ -7,6 +7,15 @@ folder(basePath) {
 
 pipelineJob("$basePath/smile-builder") {
   description('Builds smile-builder image and pushes to ecr')
+  properties {
+    pipelineTriggers {
+      triggers {
+        pollSCM {
+          scmpoll_spec('*/1 * * * * ')
+        }
+      }
+    }
+  }
   definition {
       cpsScm {
           scm {
@@ -25,6 +34,13 @@ pipelineJob("$basePath/smile-builder") {
 
 pipelineJob("$basePath/smile-provisioner") {
   description('Builds smile-provisioner and pushes to ecr')
+  properties {
+    pipelineTriggers {
+      triggers {
+        upstream(upstreamProjects: "Smile/smile-builder/", threshold: hudson.model.Result.SUCCESS)
+      }
+    }
+  }
   definition {
       cpsScm {
           scm {
@@ -97,6 +113,13 @@ pipelineJob("$basePath/smile-avm-account-delete") {
 
 pipelineJob("$basePath/smile-lz-make") {
   description('Creates or Updates a Landing Zone')
+  properties {
+    pipelineTriggers {
+      triggers {
+        upstream(upstreamProjects: "Smile/smile-provisioner/", threshold: hudson.model.Result.SUCCESS)
+      }
+    }
+  }
   definition {
       cpsScm {
           scm {
