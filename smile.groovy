@@ -121,3 +121,28 @@ pipelineJob("$basePath/smile-lz-make") {
         }
     }
 }
+
+pipelineJob("$basePath/smile-lz-make-parallel") {
+  description('Creates or Updates a Landing Zone')
+  properties {
+    pipelineTriggers {
+      triggers {
+        upstream(upstreamProjects: "Smile/smile-provisioner/", threshold: hudson.model.Result.SUCCESS)
+      }
+    }
+  }
+  definition {
+      cpsScm {
+          scm {
+              git {
+                  remote {
+                    credentials('jenkins-github')
+                    url(repo)
+                  }
+                  branches('*/master')
+                }
+            }
+            scriptPath('pipelines/smile-lz/Jenkinsfile.parallel')
+        }
+    }
+}
