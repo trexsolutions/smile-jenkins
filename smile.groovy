@@ -39,7 +39,7 @@ pipelineJob("$basePath/smile-provisioner") {
       triggers {
         upstream (
             threshold: 'SUCCESS',
-            upstreamProjects: "$basePath/smile-builder"
+            upstreamProjects: "$basePath/smile-builder/master"
         )
       }
     }
