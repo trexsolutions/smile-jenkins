@@ -34,13 +34,6 @@ pipelineJob("$basePath/smile-builder") {
 
 pipelineJob("$basePath/smile-provisioner") {
   description('Builds smile-provisioner and pushes to ecr')
-  properties {
-    pipelineTriggers {
-      triggers {
-        upstream(upstreamProjects: "../Smile/smile-builder/master", threshold: hudson.model.Result.SUCCESS)
-      }
-    }
-  }
   definition {
       cpsScm {
           scm {
