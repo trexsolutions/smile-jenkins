@@ -37,7 +37,10 @@ pipelineJob("$basePath/smile-provisioner") {
   properties {
     pipelineTriggers {
       triggers {
-        upstream(upstreamProjects: "Smile/smile-provisioner/master", threshold: hudson.model.Result.SUCCESS)
+        upstream (
+            threshold: 'SUCCESS',
+            upstreamProjects: "$basePath/smile-builder"
+        )
       }
     }
   }
