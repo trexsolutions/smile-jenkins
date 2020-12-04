@@ -20,10 +20,7 @@ const project = new AwsCdkTypeScriptApp({
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
 });
 
-project.addScriptCommand('docgen', 'yarn run doc');
-project.addScriptCommand('docgen', 'yarn run viz');
-
-project.mergify.addRule({
+project.github.addMergifyRules({
   name: 'Label core contributions',
   actions: {
     label: {
@@ -36,7 +33,7 @@ project.mergify.addRule({
   ],
 });
 
-project.mergify.addRule({
+project.github.addMergifyRules({
   name: 'Label auto-merge for core',
   actions: {
     label: {
