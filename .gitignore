@@ -35,12 +35,17 @@ jspm_packages/
 .yarn-integrity
 # parcel-bundler cache (https://parceljs.org/)
 .cache
+# jest-junit artifacts
+/test-reports/
+junit.xml
 /coverage
 /lib
 /dist
 cdk.out/
 .cdk.staging/
 .parcel-cache/
+.tools
+!/.projen/tasks.json
 !/package.json
 !/.npmignore
 !/LICENSE
@@ -53,6 +58,7 @@ cdk.out/
 !/.github/dependabot.yml
 !/.github/workflows/projenupgrade.yml
 !/.github/pull_request_template.md
+!/.github/workflows/rebuild-bot.yml
 !/tsconfig.json
 !/src
 !/tsconfig.jest.json
