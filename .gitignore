@@ -46,6 +46,7 @@ cdk.out/
 .parcel-cache/
 .tools
 !/.projen/tasks.json
+!/.gitpod.yml
 !/package.json
 !/.npmignore
 !/LICENSE
