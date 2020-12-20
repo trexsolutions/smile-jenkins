@@ -23,7 +23,7 @@ const project = new AwsCdkTypeScriptApp({
   // XXX: need to add this secret in GitHub
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   codeCov: true,
-  docgen: true,
+  // docgen: true,
   gitpod: true,
 });
 
