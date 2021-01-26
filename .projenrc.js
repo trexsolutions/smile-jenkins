@@ -1,15 +1,10 @@
-const { AwsCdkTypeScriptApp } = require('projen');
+const { JsiiProject } = require('projen');
 
 /**
  * An AWS CDK TypeScript Application
  * Applications unlike Constructs can be directly deployed
  */
-const project = new AwsCdkTypeScriptApp({
-  /**
-   * The master cdk version
-   * https://github.com/projen/projen/blob/master/API.md#struct-awscdktypescriptappoptions--
-   */
-  cdkVersion: '1.82.0',
+const project = new JsiiProject({
   name: 'smile-jenkins',
   description: 'Seed Jobs',
   authorOrganization: 'trexsolutions', // This must match the NPMJS organization
