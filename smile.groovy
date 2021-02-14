@@ -24,7 +24,7 @@ pipelineJob("$basePath/smile-builder") {
                     credentials('jenkins-github')
                     url(repo)
                   }
-                  branches('*/master')
+                  branches('*/main')
                 }
             }
             scriptPath('pipelines/smile-builder/Jenkinsfile')
@@ -42,7 +42,7 @@ pipelineJob("$basePath/smile-provisioner") {
                     credentials('jenkins-github')
                     url(repo)
                   }
-                  branches('*/master')
+                  branches('*/main')
                 }
             }
             scriptPath('pipelines/smile-provisioner/Jenkinsfile')
@@ -60,7 +60,7 @@ pipelineJob("$basePath/smile-avm-account-create") {
                     credentials('jenkins-github')
                     url(repo)
                   }
-                  branches('*/master')
+                  branches('*/main')
                 }
             }
             scriptPath('pipelines/smile-avm/Jenkinsfile.create')
@@ -78,7 +78,7 @@ pipelineJob("$basePath/smile-avm-account-provision") {
                     credentials('jenkins-github')
                     url(repo)
                   }
-                  branches('*/master')
+                  branches('*/main')
                 }
             }
             scriptPath('pipelines/smile-avm/Jenkinsfile.provision')
@@ -96,7 +96,7 @@ pipelineJob("$basePath/smile-avm-account-delete") {
                     credentials('jenkins-github')
                     url(repo)
                   }
-                  branches('*/master')
+                  branches('*/main')
                 }
             }
             scriptPath('pipelines/smile-avm/Jenkinsfile.delete')
@@ -114,7 +114,7 @@ pipelineJob("$basePath/smile-lz-make") {
                     credentials('jenkins-github')
                     url(repo)
                   }
-                  branches('*/master')
+                  branches('*/main')
                 }
             }
             scriptPath('pipelines/smile-lz/Jenkinsfile')
@@ -132,7 +132,7 @@ pipelineJob("$basePath/smile-lz-make-parallel") {
                     credentials('jenkins-github')
                     url(repo)
                   }
-                  branches('*/master')
+                  branches('*/main')
                 }
             }
             scriptPath('pipelines/smile-lz/Jenkinsfile.parallel')
