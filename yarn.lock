@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/assert@^1.82.0":
+"@aws-cdk/assert@^1.89.0":
   version "1.89.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/assert/-/assert-1.89.0.tgz#1f03fd6c49823a4e33612ddfdf65af16c9dd8b0c"
   integrity sha512-F/MnBkOqpTHBynxaoK6yW8vtTlOUdNO/uQjbfrc9EYqDnw5lRn62fwCcK9HIy82tFpmDNuyGWSzU/HzfRoSOVg==
@@ -40,7 +40,7 @@
     string-width "^4.2.0"
     table "^6.0.7"
 
-"@aws-cdk/core@1.89.0", "@aws-cdk/core@^1.82.0":
+"@aws-cdk/core@1.89.0", "@aws-cdk/core@^1.89.0":
   version "1.89.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.89.0.tgz#28ee925cad013c06269a9f4200e7884ec0962388"
   integrity sha512-Ou3DI7f/Wb6mrGqG8TQsBdJNuOte1PwnDpGnhdS5PeIWE2D+NMHvj+ryDdP/TCfRHn2AIqSlgVtjUn1dIhZyag==
@@ -1096,7 +1096,7 @@ atob@^2.1.2:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-cdk@^1.82.0:
+aws-cdk@^1.89.0:
   version "1.89.0"
   resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-1.89.0.tgz#5488d2991cd6cffdf4b723653951a775dc6b5400"
   integrity sha512-X1SEo8Q3TzLF3RE9wiKyxCRK9S29cnTimrganXLVgo9rhbVhkgtk78iN80RZarhSRs4ooTotnoH2rX7Uqg62ow==
