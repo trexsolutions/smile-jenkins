@@ -22,7 +22,7 @@ pipelineJob("$basePath/smile-builder") {
               git {
                   remote {
                     credentials('jenkins-github')
-                    branch('main')
+                    branches('main')
                     url(repo)
                   }
                   branches('*/main')
@@ -41,7 +41,7 @@ pipelineJob("$basePath/smile-provisioner") {
               git {
                   remote {
                     credentials('jenkins-github')
-                    branch('main')
+                    branches('main')
                     url(repo)
                   }
                   branches('*/main')
@@ -60,7 +60,7 @@ pipelineJob("$basePath/smile-avm-account-create") {
               git {
                   remote {
                     credentials('jenkins-github')
-                    branch('main')
+                    branches('main')
                     url(repo)
                   }
                   branches('*/main')
@@ -79,7 +79,7 @@ pipelineJob("$basePath/smile-avm-account-provision") {
               git {
                   remote {
                     credentials('jenkins-github')
-                    branch('main')
+                    branches('main')
                     url(repo)
                   }
                   branches('*/main')
@@ -98,7 +98,7 @@ pipelineJob("$basePath/smile-avm-account-delete") {
               git {
                   remote {
                     credentials('jenkins-github')
-                    branch('main')
+                    branches('main')
                     url(repo)
                   }
                   branches('*/main')
@@ -117,7 +117,7 @@ pipelineJob("$basePath/smile-lz-make") {
               git {
                   remote {
                     credentials('jenkins-github')
-                    branch('main')
+                    branches('main')
                     url(repo)
                   }
                   branches('*/main')
@@ -136,7 +136,7 @@ pipelineJob("$basePath/smile-lz-make-parallel") {
               git {
                   remote {
                     credentials('jenkins-github')
-                    branch('main')
+                    branches('main')
                     url(repo)
                   }
                   branches('*/main')
