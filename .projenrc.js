@@ -20,6 +20,8 @@ const project = new AwsCdkTypeScriptApp({
     'jenkins',
   ],
 
+  defaultReleaseBranch: 'main',
+
   // XXX: need to add this secret in GitHub
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
   codeCov: true,
