@@ -9,6 +9,7 @@
 .cache
 .cdk.staging/
 .eslintcache
+.node-version
 .nyc_output
 .parcel-cache/
 .tools
@@ -36,7 +37,6 @@ yarn-error.log*
 !/.github/pull_request_template.md
 !/.github/workflows/build.yml
 !/.github/workflows/projenupgrade.yml
-!/.github/workflows/rebuild-bot.yml
 !/.gitpod.yml
 !/.mergify.yml
 !/.npmignore

@@ -29,6 +29,7 @@ const project = new AwsCdkTypeScriptApp({
   gitpod: true,
 });
 
+project.gitignore.exclude('.node-version');
 project.gitignore.exclude('.tools');
 
 /**
