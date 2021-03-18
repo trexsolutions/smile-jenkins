@@ -9,7 +9,7 @@ const project = new AwsCdkTypeScriptApp({
    * The master cdk version
    * https://github.com/projen/projen/blob/master/API.md#struct-awscdktypescriptappoptions--
    */
-  cdkVersion: '1.89.0',
+  cdkVersion: '1.94.1',
   name: 'smile-jenkins',
   description: 'Seed Jobs',
   authorOrganization: 'trexsolutions', // This must match the NPMJS organization
